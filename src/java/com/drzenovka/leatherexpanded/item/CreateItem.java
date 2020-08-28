@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class Hides extends Item {
+public class CreateItem extends Item {
     @Override
     public String getUnlocalizedName() {
         return String.format("item.%s:%s", Reference.MOD_ID, getUnwrappedUnlocalizedName(super.getUnlocalizedName()));

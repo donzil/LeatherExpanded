@@ -1,6 +1,7 @@
 package com.drzenovka.leatherexpanded;
 
 import com.drzenovka.leatherexpanded.config.LeatherEnabledConfig;
+import com.drzenovka.leatherexpanded.event.EntityDrops;
 import com.drzenovka.leatherexpanded.init.ModItems;
 import com.drzenovka.leatherexpanded.init.Recipes;
 import com.drzenovka.leatherexpanded.proxy.IProxy;
@@ -12,6 +13,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.common.MinecraftForge;
 
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION)
@@ -53,6 +55,7 @@ public class Main {
 
         // Recipes
         Recipes.init();
+        MinecraftForge.EVENT_BUS.register(new EntityDrops());
     }
 
     @Mod.EventHandler

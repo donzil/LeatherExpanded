@@ -1,1 +1,3 @@
-item.LeatherExpanded:cowHide.name=Cow Hide
+item.LeatherExpanded:cowPelt.name=Cow Hide
+item.LeatherExpanded:sheepPelt.name=Sheep Hide
+item.LeatherExpanded:pigPelt.name=Pig Hide
