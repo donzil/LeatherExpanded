@@ -1,46 +1,62 @@
 package com.drzenovka.leatherexpanded;
 
-import com.drzenovka.leatherexpanded.proxy.CommonProxy;
+import com.drzenovka.leatherexpanded.config.LeatherEnabledConfig;
+import com.drzenovka.leatherexpanded.init.ModItems;
+import com.drzenovka.leatherexpanded.init.Recipes;
+import com.drzenovka.leatherexpanded.proxy.IProxy;
+import com.drzenovka.leatherexpanded.util.Reference;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 
-@Mod(modid = Main.MODID, name = Main.MODNAME, version = Main.VERSION)
+@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION)
 
 
 public class Main {
-	@SidedProxy(clientSide="com.drzenovka.leatherexpanded.proxy.ClientProxy", serverSide="com.drzenovka.leatherexpanded.proxy.ServerProxy")
+	@Mod.Instance(Reference.MOD_ID)
+	public static Main instance;
 	
-	public static CommonProxy proxy;
-	public static final String MODID = "leatherexpanded";
-	public static final String MODNAME = "Leather Expanded";
-	public static final String VERSION = "1.0.0";
+	@SidedProxy(clientSide=Reference.CLIENT_PROXY, serverSide=Reference.SERVER_PROXY)
+	
+	public static IProxy proxy;
+	//public static final String MODID = "";
+	//public static final String MODNAME = "Leather Expanded";
+	//public static final String VERSION = "1.0.0";
 
-	@Instance
-	public static Main instance = new Main();
+	//@Instance
+	//public static Main instance = new Main();
 
-	@EventHandler
+	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent e) {
-		proxy.preInit(e);
-		System.out.println("DEBUG: preInit");       
-	}
-	    
-	@EventHandler
-	public void init(FMLInitializationEvent e) {
-		proxy.init(e);
-		System.out.println("DEBUG: init");
+		//network handling
 		
+		//load config
+		LeatherEnabledConfig.init(e.getSuggestedConfigurationFile());
+		
+		//Register for config events
+		FMLCommonHandler.instance().bus().register(new LeatherEnabledConfig());
+		
+		//Register items & Blocks
+		ModItems.init();
 	}
-	    
-	@EventHandler
-	public void postInit(FMLPostInitializationEvent e) {
-		proxy.postInit(e);
-		System.out.println("DEBUG: postInit");   
-	}
+	
+	@Mod.EventHandler
+    public void init(FMLInitializationEvent event){
+        // UI
+
+        // Tile Entities
+
+        // Recipes
+        Recipes.init();
+    }
+
+    @Mod.EventHandler
+    public void postInit(FMLPostInitializationEvent event){
+        // Respond to other mods
+    }
 }

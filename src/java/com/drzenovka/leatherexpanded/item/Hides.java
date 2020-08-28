@@ -1,7 +1,7 @@
 package com.drzenovka.leatherexpanded.item;
 
 
-import com.drzenovka.leatherexpanded.Main;
+import com.drzenovka.leatherexpanded.util.Reference;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -12,12 +12,12 @@ import net.minecraft.item.ItemStack;
 public class Hides extends Item {
     @Override
     public String getUnlocalizedName() {
-        return String.format("item.%s:%s", Main.MODID, getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+        return String.format("item.%s:%s", Reference.MOD_ID, getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
 
     @Override
     public String getUnlocalizedName(ItemStack itemStack) {
-        return String.format("item.%s:%s", Main.MODID, getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+        return String.format("item.%s:%s", Reference.MOD_ID, getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
 
     @Override
