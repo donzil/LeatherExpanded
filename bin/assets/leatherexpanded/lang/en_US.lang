@@ -1,3 +1,12 @@
 item.LeatherExpanded:cowPelt.name=Cow Hide
 item.LeatherExpanded:sheepPelt.name=Sheep Hide
 item.LeatherExpanded:pigPelt.name=Pig Hide
+item.LeatherExpanded:hideHelmet.name=Hide Helmet
+item.LeatherExpanded:hideChestplate.name=Hide Tunic
+item.LeatherExpanded:hideLeggings.name=Hide Leggings
+item.LeatherExpanded:hideBoots.name=Hide Boots
+item.LeatherExpanded:clothHelmet.name=Cloth Helmet
+item.LeatherExpanded:clothChestplate.name=Cloth Tunic
+item.LeatherExpanded:clothLeggings.name=Cloth Leggings
+item.LeatherExpanded:clothBoots.name=Cloth Boots
+item.LeatherExpanded:coldFlame.name=Cold Flame
